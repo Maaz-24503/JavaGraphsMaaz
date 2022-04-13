@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=14
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1270</x>
+      <y>195</y>
+      <w>200</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>/AbstractFactory/
+--
+--
++AbstractFactory():
+/+getRandomColor():Color/
+/+getFont(int fontSize,int choice):Font/
+/+getBar(double value,String label):Bar/
+/+getGraph(int choice):Graph/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>335</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ColorFactory
+--
+--
++ColorFactory()
++GenerateRandomColor():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1570</x>
+      <y>325</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>GraphFactory
+--
+--
++GraphFactory()
++getGraph(int choice):Graph</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>345</y>
+      <w>185</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>HorizontalBarGraph
+--
+-graphArea:GraphArea
+-listOfBar[*]:ArrayList&lt;Bar&gt;
+-count:int
+-maxValue:int
+-spacing:int
+--
++HorizontalBarGraph()
++setGraphArea():void
++drawGraph(Graphics g):void
++setBarList(ArrayList&lt;Bar&gt; list):void
++appendBarList(Bar bar):void
++setValues():void
+-computeWidth(int spacing):int
+-computeHeight(double value):int
++getListOfBar():ArrayList&lt;Bar&gt;
++getMaxValue():int
++getSpacing():int
++getCount():int
++setSpacing(int spacing):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1455</x>
+      <y>390</y>
+      <w>205</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>BarFactory
+--
+--
++BarFactory()
++getBar(double value,String label):Bar
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>385</x>
+      <y>180</y>
+      <w>230</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>Bar
+--
+-x:int
+-y:int
+-height:int
+-width:int
+-color:color
+-label:String
+-value:double
+-fontSize:int
+--
++Bar(String label,double value,Color color)
++getX():int
++getY():int
++getColor():Color
++getLabel():String
++getValue():double
++getWidth():int
++getHeight:()int
++getFontSize():int
++setX(int x):void
++setY(int y):void
++setWidth(int width):void
++setHeight(int height):void
++setColor(Color color):void
++setLabel(String label):void
++setValue(double value):void
++setFontSize(int fontSize):void
++drawBar(Graphics g):void
+-computeFontSize():int
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>825</x>
+      <y>0</y>
+      <w>345</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>JavaGraphs
+--
+fontsize=20
+_-WIDTH:int_
+_-HEIGHT:int_
+-graphArea:GraphArea
+-factoryCreator:FactoryCreator
+-abstractFactory:AbstractFactory
+-graph:Graph
+-data:String[*][2]
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1345</x>
+      <y>265</y>
+      <w>305</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;590.0;90.0;590.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1345</x>
+      <y>265</y>
+      <w>215</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;410.0;90.0;410.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1240</x>
+      <y>265</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;90.0;10.0;90.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1355</x>
+      <y>335</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FontFactory
+--
+--
++FontFactory()
++getFont(int fontSize,int choice):Font
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>190</y>
+      <w>180</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>GraphArea
+--
+-x:int
+-y:int
+-width:int
+-height:int
+--
++GraphArea(int width,int height)
++printGraphArea(Graphics g):void
++getX():int
++getY():int
++getWidth():int
++getHeight():int
++setX(int x):void
++setY(int y):void
++setWidth(int width):void
++setHeight(int Height):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1520</x>
+      <y>200</y>
+      <w>205</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>FactoryCreator
+--
+--
++FactoryCreator()
++createFactory(int choice):AbstractFactory</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1195</x>
+      <y>160</y>
+      <w>550</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>Factory
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>675</x>
+      <y>215</y>
+      <w>195</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/Graph/
+--
+--
+/+setGraphArea(GraphArea graphArea):void/
+/+addBar(Bar b):void/
+/+setValue():void/
+/+drawGraph(Graphics g):void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>325</x>
+      <y>165</y>
+      <w>815</w>
+      <h>425</h>
+    </coordinates>
+    <panel_attributes>Graph
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>345</y>
+      <w>185</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>VerticalBarGraph
+--
+-graphArea:GraphArea
+-listOfBar[*]:ArrayList&lt;Bar&gt;
+-count:int
+-maxValue:int
+-spacing:int
+--
++HorizontalBarGraph()
++setGraphArea():void
++drawGraph(Graphics g):void
++setBarList(ArrayList&lt;Bar&gt; list):void
++appendBarList(Bar bar):void
++setValues():void
+-computeWidth(int spacing):int
+-computeHeight(double value):int
++getListOfBar():ArrayList&lt;Bar&gt;
++getMaxValue():int
++getSpacing():int
++getCount():int
++setSpacing(int spacing):void
+
+
+
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>280</y>
+      <w>160</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;300.0;50.0;300.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>280</y>
+      <w>45</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;50.0;10.0;50.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>865</x>
+      <y>230</y>
+      <w>75</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1465</x>
+      <y>220</y>
+      <w>65</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1265</x>
+      <y>370</y>
+      <w>200</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;380.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>225</y>
+      <w>75</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>m1= *
+m2=1
+lt=&lt;&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>785</x>
+      <y>125</y>
+      <w>925</w>
+      <h>445</h>
+    </coordinates>
+    <panel_attributes>lt=-
+&lt; creates
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0;790.0;10.0;790.0;870.0;1830.0;870.0;1830.0;470.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>370</y>
+      <w>945</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>1870.0;10.0;1870.0;460.0;10.0;460.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>735</x>
+      <y>5</y>
+      <w>100</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+&lt; uses </panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>985</x>
+      <y>100</y>
+      <w>40</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+uses &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1165</x>
+      <y>15</y>
+      <w>490</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+uses &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;960.0;20.0;960.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1165</x>
+      <y>15</y>
+      <w>245</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;470.0;20.0;470.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1345</x>
+      <y>265</y>
+      <w>105</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;190.0;90.0;190.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>420</y>
+      <w>975</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+&lt; creates</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0;1930.0;420.0;1920.0;20.0</additional_attributes>
+  </element>
+</diagram>
