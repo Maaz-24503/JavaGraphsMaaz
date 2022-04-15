@@ -1,4 +1,4 @@
 package Graph;
 
-public class HorizontalBarGraph {
+public class HorizontalBarGraph extends Graph{
 }
