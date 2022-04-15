@@ -5,12 +5,16 @@ public class FactoryCreator {
 
     }
     public AbstractFactory createFactory(int choice){
-        return switch (choice) {
-            case 0 -> new BarFactory();
-            case 1 -> new ColorFactory();
-            case 2 -> new FontFactory();
-            case 3 -> new GraphFactory();
-            default -> new GraphFactory();
-        };
+        switch (choice){
+            case 0:
+                return new BarFactory();
+            case 1:
+                return new ColorFactory();
+            case 2:
+                return new FontFactory();
+            case 3:
+                return new GraphFactory();
+        }
+        return new GraphFactory();
     }
 }

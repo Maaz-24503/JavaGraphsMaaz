@@ -9,6 +9,10 @@ public class GraphFactory extends AbstractFactory {
 
     }
 
+    /**
+     *
+     * @return a randomly generated color
+     */
     @Override
     public Color getRandomColor() {
         return null;
@@ -19,11 +23,22 @@ public class GraphFactory extends AbstractFactory {
         return null;
     }
 
+    /**
+     *
+     * @param value Numerical value of bar
+     * @param label Qualitative name
+     * @return A bar with the provided numerical value and label
+     */
     @Override
     public Bar getBar(double value, String label) {
         return null;
     }
 
+    /**
+     *
+     * @param i 1-Vertical Bar Graph, 2- Horizontal Bar Graph
+     * @return Either a Horizontal or a Vertical Graph
+     */
     public Graph getGraph(int choice){
         return switch (choice) {
             case (0) -> new VerticalBarGraph();
