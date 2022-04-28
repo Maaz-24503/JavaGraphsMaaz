@@ -4,12 +4,15 @@ import java.awt.*;
 import Graph.*;
 
 public class ColorFactory extends AbstractFactory{
+	/**
+	 * this constructs a ColorFactory
+	 */
     public ColorFactory(){
     }
 
     /**
      *
-     * @return A randomly generated color
+     * @return this method returns a randomly generated color
      */
     public Color getRandomColor(){
         return new Color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));

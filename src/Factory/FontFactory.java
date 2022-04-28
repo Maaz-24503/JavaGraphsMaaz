@@ -5,12 +5,15 @@ import Graph.*;
 import java.awt.*;
 
 public class FontFactory extends AbstractFactory{
+	/**
+	 * this constructor creates a FontFactory
+	 */
     public FontFactory(){
 
     }
     /**
      *
-     * @return a randomly generated color
+     * @return  returns a randomly generated color
      */
     @Override
     public Color getRandomColor() {
@@ -41,7 +44,7 @@ public class FontFactory extends AbstractFactory{
      *
      * @param fontSize - The font size of the text
      * @param choice  1-Bold, 2-Italics,3-Plain
-     * @return Font of the prefered size and description
+     * @return returns font of the prefered size and description
      */
     public Font getFont(int fontSize,int choice){
         return switch (choice) {

@@ -12,7 +12,7 @@ public abstract class AbstractFactory {
 
     /**
      *
-     * @return a randomly generated color
+     * @return returns a randomly generated color
      */
     public abstract Color getRandomColor();
 
@@ -34,8 +34,8 @@ public abstract class AbstractFactory {
 
     /**
      *
-     * @param i 1-Vertical Bar Graph, 2- Horizontal Bar Graph
-     * @return Either a Horizontal or a Vertical Graph
+     * @param i : 1-Vertical Bar Graph, 2- Horizontal Bar Graph
+     * @return returns either a Horizontal or a Vertical Graph
      */
     public abstract Graph getGraph(int i);
 

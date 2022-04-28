@@ -5,12 +5,15 @@ import Graph.*;
 import java.awt.*;
 
 public class BarFactory extends AbstractFactory{
+	/**
+	 * This constructs a BarFactory
+	 */
     public BarFactory(){
 
     }
     /**
      *
-     * @return a randomly generated color
+     * @return  returns a randomly generated color
      */
     @Override
     public Color getRandomColor() {
@@ -31,7 +34,7 @@ public class BarFactory extends AbstractFactory{
      *
      * @param value Numerical value of bar
      * @param label Qualitative name
-     * @return A bar with the provided numerical value and label
+     * @return returns a bar with the provided numerical value and label
      */
     public Bar getBar(double value, String label){
         ColorFactory colorFactory = new ColorFactory();

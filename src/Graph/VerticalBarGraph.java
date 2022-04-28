@@ -11,38 +11,81 @@ public class VerticalBarGraph extends Graph {
     private int count;
     private double maxValue;
     private int Spacing = 10;
+    
+    /**
+     * this constructs a HorizontalBarGraph object
+     */
 
     public VerticalBarGraph() {
 
     }
+    /**
+     * 
+     * @return returns the list of Bars
+     */
 
     public ArrayList<Bar> getListOfBar() {
         return listOfBar;
     }
+    
+    /**
+     * 
+     * @return returns the GraphArea
+     */
 
     public GraphArea getGraphArea() {
         return graphArea;
     }
+    
+    /**
+     * 
+     * @return returns the count
+     */
 
     public int getCount() {
         return count;
     }
+    
+    /**
+     * 
+     * @return returns the MaxValue of the bar
+     */
 
     public double getMaxValue() {
         return maxValue;
     }
+    
+    /**
+     * 
+     * @return returns the spacing between the bars
+     */
 
     public int getSpacing() {
         return Spacing;
     }
+    
+    /**
+     * 
+     * @param count sets the count to the count specified
+     */
 
     public void setCount(int count) {
         this.count = count;
     }
+    
+    /**
+     * 
+     * @param listOfBar sets the list to the list specified
+     */
 
     public void setListOfBar(ArrayList<Bar> listOfBar) {
         this.listOfBar = listOfBar;
     }
+    
+    /**
+     * 
+     * @param bar adds the bar to the list
+     */
 
     public void appendBarList(Bar bar) {
         listOfBar.add(bar);
@@ -51,18 +94,40 @@ public class VerticalBarGraph extends Graph {
 
 
     }
+    
+    /**
+     * 
+     * @param Value calculates the width with the value provided
+     * @return returns the width of the bars
+     */
 
     public int computeWidth(double Value) {
         return (int) ((Value * ((graphArea.getHeight()-20) / this.maxValue)) );
     }
+    
+    /**
+     * 
+     * @param Spacing calculates the height with the value provided
+     * @return returns the height of the bars
+     */
 
     public int computeHeight(int Spacing) {
         return graphArea.getWidth() / (listOfBar.size()) - Spacing;
     }
+    
+    /**
+     * @param graphArea sets the GraphArea to the specified GraphArea
+     */
 
     public void setGraphArea(GraphArea graphArea) {
         this.graphArea = graphArea;
     }
+    
+
+    /**
+     * 
+     * @param bar adds the bar to the list
+     */
 
     public void addBar(Bar b) {
         listOfBar.add(b);
@@ -71,6 +136,10 @@ public class VerticalBarGraph extends Graph {
         b.setX(graphArea.getX());
         b.setY(graphArea.getHeight()+ graphArea.getY());
     }
+    
+    /**
+     * This method produces an animating effect by changing the values of height
+     */
 
     public void setValue() {
         //animation code
@@ -89,6 +158,10 @@ public class VerticalBarGraph extends Graph {
 
         }
     }
+    
+    /**
+     * Method to draw a Graph
+     */
 
     public void drawGraph(Graphics g) {
 //        graphArea.printGraphArea(g);

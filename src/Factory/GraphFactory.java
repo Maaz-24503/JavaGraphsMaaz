@@ -5,6 +5,9 @@ import Graph.*;
 import java.awt.*;
 
 public class GraphFactory extends AbstractFactory {
+	/**
+	 * this constructs a GraphFactory
+	 */
     public GraphFactory(){
 
     }
