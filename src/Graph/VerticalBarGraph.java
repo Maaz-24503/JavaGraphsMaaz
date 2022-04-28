@@ -55,11 +55,11 @@ public class VerticalBarGraph extends Graph {
     }
 
     public int computeWidth(double Value) {
-        return (int) ((Value * (graphArea.getWidth() / this.maxValue)) - 50);
+        return (int) ((Value * (graphArea.getHeight() / this.maxValue)) );
     }
 
     public int computeHeight(int Spacing) {
-        return graphArea.getHeight() / (listOfBar.size()) - Spacing;
+        return graphArea.getWidth() / (listOfBar.size()) - Spacing;
     }
 
     public void setGraphArea(GraphArea graphArea) {
@@ -70,20 +70,25 @@ public class VerticalBarGraph extends Graph {
         listOfBar.add(b);
         count++;
         if (b.getValue() > maxValue) maxValue = b.getValue();
+        b.setX(graphArea.getX());
+        b.setY(graphArea.getHeight()+ graphArea.getY());
     }
 
     public void setValue() {
         //animation code
         for(int i = 0; i < listOfBar.size(); i++){
             Bar b =listOfBar.get(i);
+
             if(b.getHeight() < computeWidth(b.getValue())){
-                b.setHeight((int)b.getValue() + computeWidth(b.getValue()/10));
+                int temp = computeWidth(b.getValue()/10);
+                b.setHeight((int)b.getHeight() + computeWidth(b.getValue()/10));
+                b.setY(b.getY() - temp);
             }
-            int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
-            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getX() ;
+           //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
+            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getX();
+            b.setWidth(computeHeight(Spacing));
             b.setX(y1);
-            b.setY(graphArea.getHeight());
-            b.setHeight(computeHeight(Spacing));
+
         }
     }
 

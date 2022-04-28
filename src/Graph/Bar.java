@@ -95,7 +95,8 @@ public class Bar {
     public void drawBar(Graphics g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
-        g.drawString(this.label, x +width, y+ height/2);
+
+        //g.drawString(this.label, x +width+5, y+ height/2);
     }
 
     private int computeFontSize() {

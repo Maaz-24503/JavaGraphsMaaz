@@ -21,10 +21,10 @@ import java.util.Scanner;
 public class JavaGraphs extends JFrame implements ActionListener
 {
 
-	private static int width = 800;
-	private static int height = 600;
+	private static int width = 1200;
+	private static int height = 700;
 	private Timer timer;
-	private int delay = 3000;
+	private int delay = 30;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
     private AbstractFactory abf;
@@ -42,10 +42,10 @@ public class JavaGraphs extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         //*****Add your code here*****
-        area = new GraphArea(width,height);
+        area = new GraphArea(800,600);
         abf = factoryCreator.createFactory(3);
         //select type of graph
-        barGraph = abf.getGraph(1);
+        barGraph = abf.getGraph(0);
         barGraph.setGraphArea(area);
 
         Path path = Paths.get("src/Main/data.txt");
