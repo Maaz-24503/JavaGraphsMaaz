@@ -1,8 +1,6 @@
 package Main;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
+import javax.swing.*;
 
 import Factory.AbstractFactory;
 import Factory.FactoryCreator;
@@ -21,8 +19,8 @@ import java.util.Scanner;
 public class JavaGraphs extends JFrame implements ActionListener
 {
 
-	private static int width = 1200;
-	private static int height = 700;
+	private static int width = 800;
+	private static int height = 600;
 	private Timer timer;
 	private int delay = 30;
     private GraphArea area;
@@ -30,6 +28,8 @@ public class JavaGraphs extends JFrame implements ActionListener
     private AbstractFactory abf;
     private Graph barGraph;
     private String[][] store;
+
+    private JButton button = new JButton();
 
     private int t;
 
@@ -42,11 +42,13 @@ public class JavaGraphs extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         //*****Add your code here*****
-        area = new GraphArea(800,600);
+        area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
         //select type of graph
         barGraph = abf.getGraph(0);
         barGraph.setGraphArea(area);
+
+
 
         Path path = Paths.get("src/Main/data.txt");
         long lines = 0;
@@ -128,6 +130,7 @@ public class JavaGraphs extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
         t++;
         barGraph.setValue();
+
 		repaint();
 	}
 

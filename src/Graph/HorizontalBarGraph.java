@@ -78,7 +78,7 @@ public class HorizontalBarGraph extends Graph {
             Bar b =listOfBar.get(i);
             if(b.getWidth() < computeWidth(b.getValue())){
                 System.out.println(b.getWidth() + (computeWidth(b.getValue())/10));
-                b.setWidth((int)(b.getWidth() + (computeWidth(b.getValue())/10)));
+                b.setWidth((b.getWidth() + (computeWidth(b.getValue())/10)));
             }
             //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
             int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() ;

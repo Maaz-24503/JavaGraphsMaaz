@@ -1,5 +1,6 @@
 package Graph;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class GraphArea {
@@ -8,6 +9,7 @@ public class GraphArea {
     private int y;
     private int width;
     private int height;
+
 
     public GraphArea(int width, int height) {
         this.x = 50;

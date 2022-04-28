@@ -1,7 +1,5 @@
 package Graph;
 
-import Factory.ColorFactory;
-import Factory.FontFactory;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -55,7 +53,7 @@ public class VerticalBarGraph extends Graph {
     }
 
     public int computeWidth(double Value) {
-        return (int) ((Value * (graphArea.getHeight() / this.maxValue)) );
+        return (int) ((Value * ((graphArea.getHeight()-20) / this.maxValue)) );
     }
 
     public int computeHeight(int Spacing) {
