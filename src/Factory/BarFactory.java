@@ -35,8 +35,8 @@ public class BarFactory extends AbstractFactory{
      */
     public Bar getBar(double value, String label){
         ColorFactory colorFactory = new ColorFactory();
-        return new Bar();
-        //return new Bar(label,value,colorFactory.getRandomColor());
+        //return new Bar();
+        return new Bar(label,value,colorFactory.getRandomColor());
     }
 
     /**

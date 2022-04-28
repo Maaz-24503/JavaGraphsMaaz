@@ -1,4 +1,4 @@
 car 50
 truck 70
 bike 120
-helicopter 150
+helicopter 400

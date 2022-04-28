@@ -24,12 +24,14 @@ public class JavaGraphs extends JFrame implements ActionListener
 	private static int width = 800;
 	private static int height = 600;
 	private Timer timer;
-	private int delay = 8;
+	private int delay = 3000;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
     private AbstractFactory abf;
     private Graph barGraph;
     private String[][] store;
+
+    private int t;
 
 	public JavaGraphs() 
 	{
@@ -40,10 +42,11 @@ public class JavaGraphs extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         //*****Add your code here*****
-        area = new GraphArea(height,width);
+        area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
         //select type of graph
-        barGraph = abf.getGraph(0);
+        barGraph = abf.getGraph(1);
+        barGraph.setGraphArea(area);
 
         Path path = Paths.get("src/Main/data.txt");
         long lines = 0;
@@ -78,6 +81,7 @@ public class JavaGraphs extends JFrame implements ActionListener
         barGraph.setGraphArea(area);
         //converting into bars
         abf = factoryCreator.createFactory(0);
+
         for(int i =0; i<store.length;i++){
             barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]),store[i][0]));
         }
@@ -94,7 +98,8 @@ public class JavaGraphs extends JFrame implements ActionListener
     	
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
-        
+        area.printGraphArea(g);
+        barGraph.drawGraph(g);
         //****************************
  
     }
@@ -102,6 +107,7 @@ public class JavaGraphs extends JFrame implements ActionListener
     public void paint(Graphics g) 
     {
         draw(g);
+
         g.dispose();
     }
  
@@ -120,7 +126,8 @@ public class JavaGraphs extends JFrame implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        barGraph.setValues();
+        t++;
+        barGraph.setValue();
 		repaint();
 	}
 

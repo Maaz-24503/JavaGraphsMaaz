@@ -13,11 +13,11 @@ public class Bar {
     private int fontSize;
     private boolean isHorizontal;
 
-    public Bar(String label, double value, Color color, boolean isHorizontal) {
+    public Bar(String label, double value, Color color) {
         this.color = color;
         this.label = label;
         this.value = value;
-        this.isHorizontal = isHorizontal;
+        //this.isHorizontal;
     }
 
     public Color getColor() {
@@ -92,9 +92,10 @@ public class Bar {
         isHorizontal = horizontal;
     }
 
-    public void drawBar(Graphics G) {
-        G.setColor(color);
-        G.fillRect(x, y, width, height);
+    public void drawBar(Graphics g) {
+        g.setColor(color);
+        g.fillRect(x, y, width, height);
+        g.drawString(this.label, x +width, y+ height/2);
     }
 
     private int computeFontSize() {
