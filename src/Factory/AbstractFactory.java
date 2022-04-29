@@ -34,7 +34,7 @@ public abstract class AbstractFactory {
 
     /**
      *
-     * @param i : 1-Vertical Bar Graph, 2- Horizontal Bar Graph
+     * @param i : 0-Vertical Bar Graph, 1- Horizontal Bar Graph
      * @return returns either a Horizontal or a Vertical Graph
      */
     public abstract Graph getGraph(int i);

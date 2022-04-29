@@ -162,7 +162,7 @@ public class JavaGraphs extends JFrame implements ActionListener
 
                 System.out.println("Bilal");
 
-                Graph barGraph = abf.getGraph(0);
+                barGraph = abf.getGraph(0);
                 barGraph.setGraphArea(area);
                 abf = factoryCreator.createFactory(0);
                 for (int i = 0; i < store.length; i++) {
