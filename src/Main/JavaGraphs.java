@@ -28,13 +28,13 @@ public class JavaGraphs extends JFrame implements ActionListener
     private AbstractFactory abf;
     private Graph barGraph;
     private String[][] store;
-
+    private JButton button;
     private boolean isPressed;
    // private
 	public JavaGraphs() 
 	{
         super("Graphs Program");
-        JButton button = new JButton("Change");
+        button = new JButton("Change");
         button.addActionListener(e -> {
             isPressed = true;
         });
@@ -113,19 +113,21 @@ public class JavaGraphs extends JFrame implements ActionListener
         //*****Add your code here*****
         if(isPressed == true){
             g.clearRect(0,0,2000,2000);
+            ((Graphics2D) g).setBackground(Color.WHITE);
             isPressed = false;
         }
         area.printGraphArea(g);
         barGraph.drawGraph(g);
+        button.paint(g);
         //System.out.println("draw");
         //****************************
  
     }
- 
+    @Override
     public void paint(Graphics g) 
     {
         draw(g);
-
+        button.repaint();
         g.dispose();
     }
  
@@ -145,6 +147,7 @@ public class JavaGraphs extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
         barGraph.setValue();
+        //check if the button is pressed
         if(isPressed == true){
             abf = factoryCreator.createFactory(3);
 
