@@ -28,19 +28,23 @@ public class JavaGraphs extends JFrame implements ActionListener
     private AbstractFactory abf;
     private Graph barGraph;
     private String[][] store;
-
-    private JButton button = new JButton();
-
-    private int t;
-
+    private JButton button = new JButton("change");
 	public JavaGraphs() 
 	{
         super("Graphs Program");
-        
-        getContentPane().setBackground(Color.WHITE);
+        button.setBounds(0,0,50,50);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(40,40,60,60);
+        panel.add(button);
+        add(panel);
+        //add(button);
+
+        //getContentPane().setBackground(Color.WHITE);
         setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
         //*****Add your code here*****
         area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
@@ -57,7 +61,6 @@ public class JavaGraphs extends JFrame implements ActionListener
         }catch (Exception e){
             e.printStackTrace();
         }
-        System.out.println(lines);
 
         Scanner sc = new Scanner(System.in);
         store = new String[(int)lines][2];
@@ -128,7 +131,6 @@ public class JavaGraphs extends JFrame implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        t++;
         barGraph.setValue();
 
 		repaint();
