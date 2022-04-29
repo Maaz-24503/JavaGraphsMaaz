@@ -32,19 +32,19 @@ public class JavaGraphs extends JFrame implements ActionListener
 	public JavaGraphs() 
 	{
         super("Graphs Program");
-        button.setBounds(0,0,50,50);
 
+        button.setBounds(0,0,50,50);
+        button.addActionListener(this);
         JPanel panel = new JPanel();
         panel.setBounds(40,40,60,60);
         panel.add(button);
         add(panel);
-        //add(button);
 
-        //getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(Color.WHITE);
         setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
+        setVisible(true);
         //*****Add your code here*****
         area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
