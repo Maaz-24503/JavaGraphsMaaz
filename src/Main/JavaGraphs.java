@@ -28,23 +28,31 @@ public class JavaGraphs extends JFrame implements ActionListener
     private AbstractFactory abf;
     private Graph barGraph;
     private String[][] store;
-    private JButton button = new JButton("change");
+
+    private boolean isPressed;
+   // private
 	public JavaGraphs() 
 	{
         super("Graphs Program");
-
-        button.setBounds(0,0,50,50);
-        button.addActionListener(this);
+        JButton button = new JButton("Change");
+        button.addActionListener(e -> {
+            isPressed = true;
+        });
+        button.setBounds(width-200,height - 40,100,20);
         JPanel panel = new JPanel();
-        panel.setBounds(40,40,60,60);
-        panel.add(button);
-        add(panel);
+        //panel.setBackground(Color.orange);
+       // panel.setBounds(0,0,width,height);
 
-        getContentPane().setBackground(Color.WHITE);
-        setSize(width, height);
+
+
+        setLayout(null);
+       // panel.add(button);
+       // getContentPane().setBackground(Color.WHITE);
+        getContentPane().add(button);
+        setSize(width+width, height+height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
+
         //*****Add your code here*****
         area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
@@ -103,8 +111,13 @@ public class JavaGraphs extends JFrame implements ActionListener
     	
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
+        if(isPressed == true){
+            g.clearRect(0,0,2000,2000);
+            isPressed = false;
+        }
         area.printGraphArea(g);
         barGraph.drawGraph(g);
+        //System.out.println("draw");
         //****************************
  
     }
@@ -132,7 +145,33 @@ public class JavaGraphs extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
         barGraph.setValue();
+        if(isPressed == true){
+            abf = factoryCreator.createFactory(3);
 
+            if (barGraph.isVertical()) {
+
+                System.out.println("Maaz");
+
+                barGraph = abf.getGraph(1);
+                barGraph.setGraphArea(area);
+                abf = factoryCreator.createFactory(0);
+                for (int i = 0; i < store.length; i++) {
+                    barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
+                }
+            }else{
+
+                System.out.println("Bilal");
+
+                Graph barGraph = abf.getGraph(0);
+                barGraph.setGraphArea(area);
+                abf = factoryCreator.createFactory(0);
+                for (int i = 0; i < store.length; i++) {
+                    barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
+                }
+            }
+
+
+        }
 		repaint();
 	}
 

@@ -32,4 +32,6 @@ public abstract class Graph {
      */
 
     public abstract void drawGraph(Graphics g);
+
+    public abstract boolean isVertical();
 }

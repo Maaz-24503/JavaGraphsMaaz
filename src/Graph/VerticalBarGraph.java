@@ -11,13 +11,15 @@ public class VerticalBarGraph extends Graph {
     private int count;
     private double maxValue;
     private int Spacing = 10;
+
+    private boolean isVertical;
     
     /**
      * this constructs a HorizontalBarGraph object
      */
 
     public VerticalBarGraph() {
-
+        isVertical = true;
     }
     /**
      * 
@@ -178,6 +180,11 @@ public class VerticalBarGraph extends Graph {
         for(Bar b:listOfBar){
             b.drawBar(g);
         }
+    }
+
+    @Override
+    public boolean isVertical() {
+        return isVertical;
     }
 }
 

@@ -39,7 +39,7 @@ public class GraphFactory extends AbstractFactory {
 
     /**
      *
-     * @param i 1-Vertical Bar Graph, 2- Horizontal Bar Graph
+     * @param choice 0-Vertical Bar Graph, 1- Horizontal Bar Graph
      * @return Either a Horizontal or a Vertical Graph
      */
     public Graph getGraph(int choice){
