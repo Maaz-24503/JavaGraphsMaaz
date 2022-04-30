@@ -130,14 +130,14 @@ public class JavaGraphs extends JFrame implements ActionListener
                     VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
                     float temp = (float)((temp2.getMaxValue()/10.0) * i);
                     String print = temp +"";
-                    g.drawString(print, area.getX(), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
-                    printOnce = true;
+                    g.drawString(print, (area.getX()), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
+                    //printOnce = true;
                 }else{
                     HorizontalBarGraph temp2 =(HorizontalBarGraph) barGraph;
                     float temp = (float)((temp2.getMaxValue()/10.0) * i);
                     String print = temp +"";
                     g.drawString(print, area.getX()+ ((area.getWidth()-50)/10)*i, area.getY());
-                    printOnce = true;
+                   // printOnce = true;
                 }
             }
         }
