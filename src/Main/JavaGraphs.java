@@ -18,8 +18,8 @@ import java.util.Scanner;
 
 public class JavaGraphs extends JFrame implements ActionListener {
 
-    private static int width = 1200;
-    private static int height = 800;
+    private static int width = 1000;
+    private static int height = 700;
     private Timer timer;
     private int delay = 30;
     private GraphArea area;
