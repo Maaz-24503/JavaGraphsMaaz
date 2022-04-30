@@ -2,3 +2,7 @@ car 50
 truck 70
 bike 120
 helicopter 400
+car 65
+truck 35
+bike 155
+helicopter 467

@@ -4,8 +4,7 @@ import javax.swing.*;
 
 import Factory.AbstractFactory;
 import Factory.FactoryCreator;
-import Graph.Graph;
-import Graph.GraphArea;
+import Graph.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,6 +29,8 @@ public class JavaGraphs extends JFrame implements ActionListener
     private String[][] store;
     private JButton button;
     private boolean isPressed;
+
+    private boolean printOnce = false;
    // private
 	public JavaGraphs() 
 	{
@@ -38,7 +39,7 @@ public class JavaGraphs extends JFrame implements ActionListener
         button.addActionListener(e -> {
             isPressed = true;
         });
-        button.setBounds(width-200,height - 40,100,20);
+        button.setBounds(width-200,height - 60,100,20);
         JPanel panel = new JPanel();
         //panel.setBackground(Color.orange);
        // panel.setBounds(0,0,width,height);
@@ -49,7 +50,7 @@ public class JavaGraphs extends JFrame implements ActionListener
        // panel.add(button);
        // getContentPane().setBackground(Color.WHITE);
         getContentPane().add(button);
-        setSize(width+width, height+height);
+        setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -57,7 +58,7 @@ public class JavaGraphs extends JFrame implements ActionListener
         area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
         //select type of graph
-        barGraph = abf.getGraph(1);
+        barGraph = abf.getGraph(0);
         barGraph.setGraphArea(area);
 
 
@@ -111,14 +112,37 @@ public class JavaGraphs extends JFrame implements ActionListener
     	
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
-        if(isPressed == true){
-            g.clearRect(0,0,2000,2000);
-            ((Graphics2D) g).setBackground(Color.WHITE);
+        area.printGraphArea(g2d);
+        barGraph.drawGraph(g2d);
+        button.paint(g2d);
+
+        if(isPressed){
+           // g2d.clearRect(0,0,width,height);
+            g.setColor(Color.WHITE);
+            g2d.fillRect(0,0,width,height);
             isPressed = false;
+
         }
-        area.printGraphArea(g);
-        barGraph.drawGraph(g);
-        button.paint(g);
+        if(printOnce == false){
+            for(int i = 1; i <= 10; i++){
+                //10 to make 10 divisions
+                if(barGraph.isVertical()){
+                    VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
+                    int temp = (int)((temp2.getMaxValue()/10.0) * i);
+                    String print = temp +"";
+                    g.drawString(print, area.getX(), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
+                    printOnce = true;
+                }else{
+                    HorizontalBarGraph temp2 =(HorizontalBarGraph) barGraph;
+                    int temp = (int)((temp2.getMaxValue()/10.0) * i);
+                    String print = temp +"";
+                    g.drawString(print, area.getX()+ ((area.getWidth()-50)/10)*i, area.getY());
+                    printOnce = true;
+                }
+            }
+        }
+
+
         //System.out.println("draw");
         //****************************
  
@@ -161,6 +185,7 @@ public class JavaGraphs extends JFrame implements ActionListener
                 for (int i = 0; i < store.length; i++) {
                     barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
+                printOnce= false;
             }else{
 
                 System.out.println("Bilal");
@@ -171,6 +196,7 @@ public class JavaGraphs extends JFrame implements ActionListener
                 for (int i = 0; i < store.length; i++) {
                     barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
+                printOnce = false;
             }
 
 

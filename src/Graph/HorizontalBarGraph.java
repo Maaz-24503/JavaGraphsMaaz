@@ -181,6 +181,8 @@ public class HorizontalBarGraph extends Graph {
             if(b.getWidth() >= computeWidth(b.getValue())){
                 g.drawString(b.getLabel(),b.getX() + b.getWidth(),b.getY() + b.getHeight());
             }
+            //drawing axis labels
+
         }
     }
 
