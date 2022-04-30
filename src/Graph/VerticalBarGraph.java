@@ -103,8 +103,8 @@ public class VerticalBarGraph extends Graph {
      * @return returns the width of the bars
      */
 
-    public int computeWidth(double Value) {
-        return (int) ((Value * ((graphArea.getHeight()-20) / this.maxValue)) );
+    public int computeheight(double Value) {
+        return (int) ((Value * ((graphArea.getHeight()-40) / this.maxValue)) );
     }
     
     /**
@@ -113,7 +113,7 @@ public class VerticalBarGraph extends Graph {
      * @return returns the height of the bars
      */
 
-    public int computeHeight(int Spacing) {
+    public int computeWidth(int Spacing) {
         return graphArea.getWidth() / (listOfBar.size()) - Spacing;
     }
     
@@ -148,14 +148,14 @@ public class VerticalBarGraph extends Graph {
         for(int i = 0; i < listOfBar.size(); i++){
             Bar b =listOfBar.get(i);
 
-            if(b.getHeight() < computeWidth(b.getValue())){
-                int temp = computeWidth(b.getValue()/10);
-                b.setHeight((int)b.getHeight() + computeWidth(b.getValue()/10));
+            if(b.getHeight() < computeheight(b.getValue())){
+                int temp = computeheight(b.getValue()/10);
+                b.setHeight((int)b.getHeight() + computeheight(b.getValue()/10));
                 b.setY(b.getY() - temp);
             }
            //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
-            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getX();
-            b.setWidth(computeHeight(Spacing));
+            int y1 = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX();
+            b.setWidth(computeWidth(Spacing));
             b.setX(y1);
 
         }
@@ -180,7 +180,7 @@ public class VerticalBarGraph extends Graph {
         for(Bar b:listOfBar){
             b.drawBar(g);
             b.drawBar(g);
-            if(b.getHeight() >= computeWidth(b.getValue())){
+            if(b.getHeight() >= computeheight(b.getValue())){
                 g.drawString(b.getLabel(),b.getX(),b.getY());
             }
         }

@@ -1,4 +1,4 @@
-car 0.50
+car 0.05
 truck 0.70
 bike 0.120
 helicopter 0.400

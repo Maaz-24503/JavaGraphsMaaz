@@ -109,10 +109,10 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
-
         area.printGraphArea(g2d);
-        barGraph.drawGraph(g2d);
         button.repaint();
+        barGraph.drawGraph(g2d);
+
 
         if (isPressed) {
             // g2d.clearRect(0,0,width,height);
