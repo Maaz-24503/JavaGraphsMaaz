@@ -112,9 +112,10 @@ public class JavaGraphs extends JFrame implements ActionListener
     	
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
+
         area.printGraphArea(g2d);
         barGraph.drawGraph(g2d);
-        button.paint(g2d);
+        button.repaint();
 
         if(isPressed){
            // g2d.clearRect(0,0,width,height);
@@ -127,10 +128,10 @@ public class JavaGraphs extends JFrame implements ActionListener
             for(int i = 1; i <= 10; i++){
                 //10 to make 10 divisions
                 if(barGraph.isVertical()){
-                    VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
-                    float temp = (float)((temp2.getMaxValue()/10.0) * i);
-                    String print = temp +"";
-                    g.drawString(print, (area.getX()), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
+//                    VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
+//                    float temp = (float)((temp2.getMaxValue()/10.0) * i);
+//                    String print = temp +"";
+//                    g.drawString(print, (area.getX()), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
                     //printOnce = true;
                 }else{
                     HorizontalBarGraph temp2 =(HorizontalBarGraph) barGraph;

@@ -184,6 +184,13 @@ public class VerticalBarGraph extends Graph {
                 g.drawString(b.getLabel(),b.getX(),b.getY());
             }
         }
+        g.setColor(Color.BLACK);
+        for(int i= 1; i<=10;i++){
+            //VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
+            float temp = (float)((this.getMaxValue()/10.0) * i);
+            String print = temp +"";
+            g.drawString(print, (graphArea.getX()), graphArea.getY() + graphArea.getHeight() - ((graphArea.getHeight()-50)/10)*i);
+        }
     }
 
     @Override
