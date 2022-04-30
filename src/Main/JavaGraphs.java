@@ -109,6 +109,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
+        g.setColor(Color.BLACK);
         area.printGraphArea(g2d);
         button.repaint();
         barGraph.drawGraph(g2d);
@@ -131,6 +132,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
 //                    g.drawString(print, (area.getX()), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
                     //printOnce = true;
                 } else {
+                    g.setColor(Color.BLACK);
                     HorizontalBarGraph temp2 = (HorizontalBarGraph) barGraph;
                     float temp = (float) ((temp2.getMaxValue() / 10.0) * i);
                     String print = temp + "";
