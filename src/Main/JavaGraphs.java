@@ -128,13 +128,13 @@ public class JavaGraphs extends JFrame implements ActionListener
                 //10 to make 10 divisions
                 if(barGraph.isVertical()){
                     VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
-                    int temp = (int)((temp2.getMaxValue()/10.0) * i);
+                    float temp = (float)((temp2.getMaxValue()/10.0) * i);
                     String print = temp +"";
                     g.drawString(print, area.getX(), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
                     printOnce = true;
                 }else{
                     HorizontalBarGraph temp2 =(HorizontalBarGraph) barGraph;
-                    int temp = (int)((temp2.getMaxValue()/10.0) * i);
+                    float temp = (float)((temp2.getMaxValue()/10.0) * i);
                     String print = temp +"";
                     g.drawString(print, area.getX()+ ((area.getWidth()-50)/10)*i, area.getY());
                     printOnce = true;
