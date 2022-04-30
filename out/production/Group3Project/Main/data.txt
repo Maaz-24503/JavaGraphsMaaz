@@ -1,5 +1,5 @@
 car 5000
 truck 9000
 bike 4500
-helicopter 6500
+Helicopter 6500
 car 20000

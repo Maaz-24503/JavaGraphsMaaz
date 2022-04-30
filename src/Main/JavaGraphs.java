@@ -18,8 +18,8 @@ import java.util.Scanner;
 
 public class JavaGraphs extends JFrame implements ActionListener {
 
-    private static int width = 800;
-    private static int height = 600;
+    private static int width = 1200;
+    private static int height = 800;
     private Timer timer;
     private int delay = 30;
     private GraphArea area;
@@ -39,7 +39,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
         button.addActionListener(e -> {
             isPressed = true;
         });
-        button.setBounds(width - 200, height - 60, 100, 20);
+        button.setBounds(width - 160, height - 70, 100, 20);
         JPanel panel = new JPanel();
         //panel.setBackground(Color.orange);
         // panel.setBounds(0,0,width,height);

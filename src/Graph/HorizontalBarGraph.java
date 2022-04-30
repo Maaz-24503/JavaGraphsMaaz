@@ -105,7 +105,7 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public int computeHeight(int Spacing) {
-        return graphArea.getHeight() / (listOfBar.size()) - Spacing;
+        return graphArea.getHeight() / (listOfBar.size()) - Spacing - (int) Math.ceil(10.0 / listOfBar.size());
     }
 
     /**
@@ -142,7 +142,7 @@ public class HorizontalBarGraph extends Graph {
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }
             }
-            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY();
+            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() + 10;
             b.setX(graphArea.getX());
             b.setY(y1);
             b.setHeight(computeHeight(Spacing));
@@ -154,21 +154,12 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public void drawGraph(Graphics g) {
-//        graphArea.printGraphArea(g);
-//        ColorFactory temp = new ColorFactory();
-//        FontFactory temp1 = new FontFactory();
-//        for (int i = 0; i < count; i++) {
-//            int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
-//            int y1 = i * computeHeight(getSpacing()) + i * getSpacing() + graphArea.getY();
-//            g.setColor(temp.getRandomColor());
-//            g.fillRect(x1, y1, computeHeight(Spacing), computeWidth(listOfBar.get(i).getValue()));
-//            g.setColor(Color.BLACK);
-//            g.drawString(listOfBar.get(i).getLabel(), x1, y1);
-//        }
+
         for (Bar b : listOfBar) {
             b.drawBar(g);
             if (b.getWidth() >= computeWidth(b.getValue())) {
-                g.drawString(b.getLabel(), b.getX() + b.getWidth(), b.getY() + b.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawString(b.getLabel(), b.getX() + b.getWidth() + 5, b.getY() - (b.getHeight() / 2) + b.getHeight());
             }
             //drawing axis labels
 

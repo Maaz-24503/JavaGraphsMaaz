@@ -103,7 +103,6 @@ public class VerticalBarGraph extends Graph {
      * @param Spacing calculates the height with the value provided
      * @return returns the height of the bars
      */
-
     public int computeWidth(int Spacing) {
         return graphArea.getWidth() / (listOfBar.size()) - Spacing - (int) Math.ceil(40.0 / (listOfBar.size()));  // we subtract 40/size so that there is space for the axis labels on the left
     }
@@ -111,7 +110,6 @@ public class VerticalBarGraph extends Graph {
     /**
      * @param graphArea sets the GraphArea to the specified GraphArea
      */
-
     public void setGraphArea(GraphArea graphArea) {
         this.graphArea = graphArea;
     }
@@ -120,7 +118,6 @@ public class VerticalBarGraph extends Graph {
     /**
      * @param b adds the bar to the list
      */
-
     public void addBar(Bar b) {
         listOfBar.add(b);
         count++;
@@ -132,7 +129,6 @@ public class VerticalBarGraph extends Graph {
     /**
      * This method produces an animating effect by changing the values of height
      */
-
     public void setValue() {
         //animation code
         for (int i = 0; i < listOfBar.size(); i++) {
@@ -154,24 +150,16 @@ public class VerticalBarGraph extends Graph {
     /**
      * Method to draw a Graph
      */
-
     public void drawGraph(Graphics g) {
-//        graphArea.printGraphArea(g);
-//        ColorFactory temp = new ColorFactory();
-//        FontFactory temp1 = new FontFactory();
-//        for (int i = 0; i < count; i++) {
-//            int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
-//            int y1 = i * computeHeight(getSpacing()) + i * getSpacing() + graphArea.getY();
-//            g.setColor(temp.getRandomColor());
-//            g.fillRect(x1, y1, computeHeight(Spacing), computeWidth(listOfBar.get(i).getValue()));
-//            g.setColor(Color.BLACK);
-//            g.drawString(listOfBar.get(i).getLabel(), x1, y1);
-//        }
+
+        FontMetrics fontsize = g.getFontMetrics();              //Font metrics allows us to check how many pixels a string is taking
+        //this will help us in centering the font
         for (Bar b : listOfBar) {
             b.drawBar(g);
             b.drawBar(g);
             if (b.getHeight() >= computeheight(b.getValue())) {
-                g.drawString(b.getLabel(), b.getX(), b.getY());
+                g.setColor(Color.BLACK);
+                g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontsize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
             }
         }
         g.setColor(Color.BLACK);
