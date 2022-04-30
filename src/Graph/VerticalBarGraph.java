@@ -128,7 +128,7 @@ public class VerticalBarGraph extends Graph {
 
     /**
      * 
-     * @param bar adds the bar to the list
+     * @param b adds the bar to the list
      */
 
     public void addBar(Bar b) {
@@ -179,6 +179,10 @@ public class VerticalBarGraph extends Graph {
 //        }
         for(Bar b:listOfBar){
             b.drawBar(g);
+            b.drawBar(g);
+            if(b.getHeight() >= computeWidth(b.getValue())){
+                g.drawString(b.getLabel(),b.getX(),b.getY());
+            }
         }
     }
 

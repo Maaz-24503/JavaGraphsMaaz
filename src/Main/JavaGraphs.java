@@ -57,7 +57,7 @@ public class JavaGraphs extends JFrame implements ActionListener
         area = new GraphArea(width,height);
         abf = factoryCreator.createFactory(3);
         //select type of graph
-        barGraph = abf.getGraph(0);
+        barGraph = abf.getGraph(1);
         barGraph.setGraphArea(area);
 
 

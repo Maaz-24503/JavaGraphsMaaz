@@ -104,7 +104,8 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public int computeWidth(double Value) {
-        return (int) ((Value * (graphArea.getWidth() / this.maxValue)) - 50);
+       //System.out.println(((Value * (graphArea.getWidth() / this.maxValue)) - 50));
+        return (int) Math.ceil(((Value * ((graphArea.getWidth()-50) / this.maxValue))));
     }
     /**
      * 
@@ -125,7 +126,7 @@ public class HorizontalBarGraph extends Graph {
 
     /**
      * 
-     * @param bar adds the bar to the list
+     * @param b adds the bar to the list
      */
     public void addBar(Bar b) {
         listOfBar.add(b);
@@ -141,11 +142,18 @@ public class HorizontalBarGraph extends Graph {
         //animation code
         for(int i = 0; i < listOfBar.size(); i++){
             Bar b =listOfBar.get(i);
+//            if(i== 5 || i == 0){
+               System.out.println( i +" "+ b.getWidth());
+//                System.out.println( i +" "+ (computeWidth(b.getValue())));
+//            }
             if(b.getWidth() < computeWidth(b.getValue())){
-                System.out.println(b.getWidth() + (computeWidth(b.getValue())/10));
-                b.setWidth((b.getWidth() + (computeWidth(b.getValue())/10)));
+
+                if(computeWidth(b.getValue()) < 10){
+                    b.setWidth((int)(b.getWidth() +computeWidth(b.getValue())));
+                }else{
+                    b.setWidth((int)(b.getWidth() + Math.ceil(computeWidth(b.getValue())/10.0)));
+                }
             }
-            //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
             int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() ;
             b.setX(graphArea.getX());
             b.setY(y1);
@@ -170,6 +178,9 @@ public class HorizontalBarGraph extends Graph {
 //        }
         for(Bar b:listOfBar){
             b.drawBar(g);
+            if(b.getWidth() >= computeWidth(b.getValue())){
+                g.drawString(b.getLabel(),b.getX() + b.getWidth(),b.getY() + b.getHeight());
+            }
         }
     }
 
