@@ -138,6 +138,9 @@ public class VerticalBarGraph extends Graph {
                 int temp = computeheight(b.getValue() / 10);
                 b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
                 b.setY(b.getY() - temp);
+                if((b.getHeight()- computeheight(b.getValue())) <= temp ){
+                    b.setValue(computeheight(b.getValue()));
+                }
             }
             //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
             int y1 = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;

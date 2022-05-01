@@ -18,8 +18,8 @@ public class GraphArea {
      * @param height height of the GraphArea
      */
     public GraphArea(int width, int height) {
-        this.x = 50;
-        this.y = 50;
+        this.x = 100;
+        this.y = 100;
         this.width = width - 2 * y;
         this.height = height - 2 * x;
     }
