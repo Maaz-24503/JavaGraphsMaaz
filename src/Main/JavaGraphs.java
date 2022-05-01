@@ -30,7 +30,6 @@ public class JavaGraphs extends JFrame implements ActionListener {
     private boolean isPressed;
 
 
-    // private
     public JavaGraphs() {
         super("Graphs Program");
         setLayout(null);
@@ -43,14 +42,14 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         //adding button
         button = new JButton("Change");
-        getContentPane().add(button); 
+        getContentPane().add(button);
         //function for button
         button.addActionListener(e -> {
             isPressed = true;
         });
 
         area = new GraphArea(width, height);
-        button.setBounds(area.getWidth(),area.getHeight()+ (area.getY()), 100, 20);
+        button.setBounds(area.getWidth(), area.getHeight() + (area.getY()), 100, 20);
         abf = factoryCreator.createFactory(3);
         //select type of graph
         barGraph = abf.getGraph(0);
@@ -106,7 +105,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
-        
+
         area.printGraphArea(g2d);
         button.repaint();
         barGraph.drawGraph(g2d);
@@ -145,9 +144,9 @@ public class JavaGraphs extends JFrame implements ActionListener {
     }
 
     /**
-     * check if the button is pressed, if it is then it swithes the graph from vertical to horizontal or vice versa
+     * check if the button is pressed, if it is then it switches the graph from vertical to horizontal or vice versa
      */
-    public void ifButtonPressed(){
+    public void ifButtonPressed() {
         if (isPressed) {
             abf = factoryCreator.createFactory(3);
             if (barGraph.isVertical()) {
@@ -173,7 +172,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
         }
     }
 
-    public void resetScreen(Graphics g){
+    public void resetScreen(Graphics g) {
         //clearing the screen by setting it to the background color
         if (isPressed) {
             g.setColor(Color.WHITE);
