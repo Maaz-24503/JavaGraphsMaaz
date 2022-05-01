@@ -184,6 +184,10 @@ public class VerticalBarGraph extends Graph {
         }
     }
 
+    /**
+     *
+     * @return true it it's a vertical bar graph and false if it's a HorizontalBarGraph
+     */
     @Override
     public boolean isVertical() {
         return true;
