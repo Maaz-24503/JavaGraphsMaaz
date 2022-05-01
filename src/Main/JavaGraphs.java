@@ -23,7 +23,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
     private int delay = 8;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
-    private AbstractFactory abf;
+    private AbstractFactory abstractFactory;
     private Graph barGraph;
     private String[][] store;
     private JButton button;
@@ -51,9 +51,9 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         area = new GraphArea(width, height);
         button.setBounds(area.getWidth(),area.getHeight()+ (area.getY()), 100, 20);
-        abf = factoryCreator.createFactory(3);
+        abstractFactory = factoryCreator.createFactory(3);
         //select type of graph
-        barGraph = abf.getGraph(0);
+        barGraph = abstractFactory.getGraph(0);
         //setting the graph area
         barGraph.setGraphArea(area);
 
@@ -90,10 +90,10 @@ public class JavaGraphs extends JFrame implements ActionListener {
         }
 
         //converting into bars
-        abf = factoryCreator.createFactory(0);
+        abstractFactory = factoryCreator.createFactory(0);
 
         for (int i = 0; i < store.length; i++) {
-            barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
+            barGraph.addBar(abstractFactory.getBar(Double.parseDouble(store[i][1]), store[i][0]));
         }
 
 
@@ -149,22 +149,31 @@ public class JavaGraphs extends JFrame implements ActionListener {
      */
     public void ifButtonPressed(){
         if (isPressed) {
-            abf = factoryCreator.createFactory(3);
+            //get graph factory
+            abstractFactory = factoryCreator.createFactory(3);
             if (barGraph.isVertical()) {
-                barGraph = abf.getGraph(1);
+                //converting to horizontal bar graph
+                //get a horizontal graph
+                barGraph = abstractFactory.getGraph(1);
+                //set graph area
                 barGraph.setGraphArea(area);
-                abf = factoryCreator.createFactory(0);
+                //set factory to bar factory
+                abstractFactory = factoryCreator.createFactory(0);
                 for (int i = 0; i < store.length; i++) {
-                    barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
+                    barGraph.addBar(abstractFactory.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
 
             } else {
-
-                barGraph = abf.getGraph(0);
+                //converting to vertical bar graph
+                //get a vertical graph
+                barGraph = abstractFactory.getGraph(0);
+                //set graph area
                 barGraph.setGraphArea(area);
-                abf = factoryCreator.createFactory(0);
+                //set factory to bar factory
+                abstractFactory = factoryCreator.createFactory(0);
                 for (int i = 0; i < store.length; i++) {
-                    barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
+                    //adding bars to the graph
+                    barGraph.addBar(abstractFactory.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
 
             }

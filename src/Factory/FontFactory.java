@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class FontFactory extends AbstractFactory {
 
-    // We have not used this class since the fonts ended up glitching on windows and only worked on linux
+    // We have not used this class since the fonts ended up glitching on Windows and only worked on linux
     // So we simply used the drawString function
 
     /**

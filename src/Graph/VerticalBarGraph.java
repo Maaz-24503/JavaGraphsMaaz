@@ -14,9 +14,8 @@ public class VerticalBarGraph extends Graph {
 
 
     /**
-     * this constructs a HorizontalBarGraph object
+     * this constructs a VerticalBarGraph object
      */
-
     public VerticalBarGraph() {
     }
 

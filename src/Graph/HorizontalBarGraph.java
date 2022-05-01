@@ -11,14 +11,12 @@ public class HorizontalBarGraph extends Graph {
     private double maxValue;
     private int Spacing = 10; //spacing between the bars
 
-    private boolean isVertical;
 
     /**
      * this constructs a HorizontalBarGraph object
      */
 
     public HorizontalBarGraph() {
-        isVertical = false;
     }
 
     /**
@@ -95,6 +93,7 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public int computeWidth(double Value) {
+        //we do -50 as to give some room for the text
         return (int) Math.ceil(((Value * ((graphArea.getWidth() - 50) / this.maxValue))));
     }
 
@@ -132,6 +131,7 @@ public class HorizontalBarGraph extends Graph {
         //animation code
         for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
+            //the width of the bar
             int computedWidth = computeWidth(b.getValue());
 
             if (b.getWidth() < computedWidth) {
@@ -166,7 +166,7 @@ public class HorizontalBarGraph extends Graph {
             }
             //drawing axis labels
             for (int i = 1; i <= 10; i++) {
-                //10 to make 10 divisions
+                //divide by 10 to make 10 divisions
                 g.setColor(Color.BLACK);
                 float temp = (float) ((getMaxValue() / 10.0) * i);
                 String print = temp + "";
@@ -175,6 +175,10 @@ public class HorizontalBarGraph extends Graph {
         }
     }
 
+    /**
+     *
+     * @return true if it is vertical and false if it is horizontal
+     */
     @Override
     public boolean isVertical() {
         return false;
