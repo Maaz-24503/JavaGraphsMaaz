@@ -133,11 +133,15 @@ public class HorizontalBarGraph extends Graph {
         for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
             int computedWidth = computeWidth(b.getValue());
-            if (b.getWidth() < computedWidth) {
 
+            if (b.getWidth() < computedWidth) {
+                //we check if its less than 10
                 if (computeWidth(b.getValue()) < 10) {
+                    //if it is less than 10 then we increase it by the computed Width
+                    //otherwise it will be 0
                     b.setWidth((b.getWidth() + computedWidth));
                 } else {
+                    //if its 10 or greater we divide by 10 and then increase
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }
             }

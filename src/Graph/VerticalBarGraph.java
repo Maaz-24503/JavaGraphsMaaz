@@ -133,20 +133,28 @@ public class VerticalBarGraph extends Graph {
             Bar b = listOfBar.get(i);
             int computedHeight = computeHeight(b.getValue());
 
+            //if the height is less than the computed height
             if (b.getHeight() < computedHeight) {
-                int temp = computeHeight(b.getValue())/10;
 
-                if (Math.abs(b.getHeight() - computedHeight) <= temp) {
+                int increment = computedHeight/10;
+                //if the change is less than the increment
+                if (Math.abs(b.getHeight() - computedHeight) <= increment) {
+                    //then directly set the height
                     b.setValue(computedHeight);
                 }else{
-                    b.setHeight(b.getHeight() + computeHeight(b.getValue())/10);
-                    b.setY(b.getY()-temp);
+                    //otherwise increase by 1/10 th of the computed height
+                    b.setHeight(b.getHeight() + computedHeight/10);
+                    //we subtract the y coordinate as it increase as we go down
+                    b.setY(b.getY()-increment);
                 }
-            }
 
-            int xCoordinate = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;
-            b.setWidth(computeWidth(Spacing));
-            b.setX(xCoordinate);
+                int xCoordinate = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;
+                //the width of the bar
+                b.setWidth(computeWidth(Spacing));
+                //setting x coordinate
+                b.setX(xCoordinate);
+
+            }
 
         }
     }
