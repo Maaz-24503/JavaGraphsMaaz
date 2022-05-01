@@ -132,11 +132,11 @@ public class HorizontalBarGraph extends Graph {
         //animation code
         for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
-
-            if (b.getWidth() < computeWidth(b.getValue())) {
+            int computedWidth = computeWidth(b.getValue());
+            if (b.getWidth() < computedWidth) {
 
                 if (computeWidth(b.getValue()) < 10) {
-                    b.setWidth((b.getWidth() + computeWidth(b.getValue())));
+                    b.setWidth((b.getWidth() + computedWidth));
                 } else {
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }

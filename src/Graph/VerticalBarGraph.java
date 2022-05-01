@@ -93,7 +93,7 @@ public class VerticalBarGraph extends Graph {
      * @return returns the width of the bars
      */
 
-    public int computeheight(double Value) {
+    public int computeHeight(double Value) {
         return (int) ((Value * ((graphArea.getHeight() - 20) / this.maxValue)));
     }
 
@@ -131,20 +131,22 @@ public class VerticalBarGraph extends Graph {
         //animation code
         for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
-            if (b.getHeight() < computeheight(b.getValue())) {
-                int temp = computeheight(b.getValue() / 10);
+            int computedHeight = computeHeight(b.getValue());
 
-                if (Math.abs(b.getHeight() - computeheight(b.getValue())) <= temp) {
-                    b.setValue(computeheight(b.getValue()));
+            if (b.getHeight() < computedHeight) {
+                int temp = computeHeight(b.getValue())/10;
+
+                if (Math.abs(b.getHeight() - computedHeight) <= temp) {
+                    b.setValue(computedHeight);
                 }else{
-                    b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
+                    b.setHeight(b.getHeight() + computeHeight(b.getValue())/10);
                     b.setY(b.getY()-temp);
                 }
             }
-            //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
-            int y1 = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;
+
+            int xCoordinate = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;
             b.setWidth(computeWidth(Spacing));
-            b.setX(y1);
+            b.setX(xCoordinate);
 
         }
     }
@@ -154,12 +156,12 @@ public class VerticalBarGraph extends Graph {
      */
     public void drawGraph(Graphics g) {
 
-        FontMetrics fontsize = g.getFontMetrics();              //Font metrics allows us to check how many pixels a string is taking
+        FontMetrics fontsize = g.getFontMetrics();//Font metrics allows us to check how many pixels a string is taking
         //this will help us in centering the font
         for (Bar b : listOfBar) {
             b.drawBar(g);
             b.drawBar(g);
-            if (b.getHeight() >= computeheight(b.getValue())) {
+            if (b.getHeight() >= computeHeight(b.getValue())) {
                 g.setColor(Color.BLACK);
                 g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontsize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
             }
