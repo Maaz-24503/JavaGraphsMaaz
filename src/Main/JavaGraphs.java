@@ -21,7 +21,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
     private static int width = 1000;
     private static int height = 700;
     private Timer timer;
-    private int delay = 30;
+    private int delay = 8;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
     private AbstractFactory abf;
