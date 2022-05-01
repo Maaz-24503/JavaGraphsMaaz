@@ -129,17 +129,15 @@ public class VerticalBarGraph extends Graph {
      */
     public void setValue() {
         //animation code
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < listOfBar.size(); i++) {
             Bar b = listOfBar.get(i);
-            int computedHeight = computeheight(b.getValue());
-            if (b.getHeight() < computedHeight) {
-                int temp = computedHeight/10;
-                if(Math.abs(b.getHeight()- computedHeight) <= temp ){
+
+            if (b.getHeight() < computeheight(b.getValue())) {
+                int temp = computeheight(b.getValue() / 10);
+                b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
+                b.setY(b.getY() - temp);
+                if (Math.abs(b.getHeight() - computeheight(b.getValue())) <= temp) {
                     b.setValue(computeheight(b.getValue()));
-                    //b.setHeight(b.getY());
-                }else{
-                    b.setHeight(b.getHeight() + computeheight(b.getValue())/10);
-                    b.setY(b.getY() - temp);
                 }
             }
             //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());
@@ -165,12 +163,13 @@ public class VerticalBarGraph extends Graph {
                 g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontsize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
             }
         }
+        // drawing axis labels
         g.setColor(Color.BLACK);
         for (int i = 1; i <= 10; i++) {
 
             float temp = (float) ((this.getMaxValue() / 10.0) * i);
             String print = temp + "";
-            g.drawString(print, (graphArea.getX()), graphArea.getY() + graphArea.getHeight() - ((graphArea.getHeight() - 50) / 10) * i);
+            g.drawString(print, (graphArea.getX()) + 2, graphArea.getY() + graphArea.getHeight() - ((graphArea.getHeight() - 50) / 10) * i);
         }
     }
 
