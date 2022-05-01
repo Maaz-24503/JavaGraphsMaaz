@@ -138,7 +138,7 @@ public class VerticalBarGraph extends Graph {
                 int temp = computeheight(b.getValue() / 10);
                 b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
                 b.setY(b.getY() - temp);
-                if((b.getHeight()- computeheight(b.getValue())) <= temp ){
+                if(Math.abs(b.getHeight()- computeheight(b.getValue())) <= temp ){
                     b.setValue(computeheight(b.getValue()));
                 }
             }
