@@ -50,7 +50,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
         });
 
         area = new GraphArea(width, height);
-        button.setBounds(area.getWidth(),area.getHeight() + 20, 100, 20);
+        button.setBounds(area.getWidth(),area.getHeight()+ (area.getY()), 100, 20);
         abf = factoryCreator.createFactory(3);
         //select type of graph
         barGraph = abf.getGraph(0);

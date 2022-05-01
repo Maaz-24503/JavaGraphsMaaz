@@ -129,9 +129,8 @@ public class VerticalBarGraph extends Graph {
      */
     public void setValue() {
         //animation code
-        for (int i = 0; i < listOfBar.size(); i++) {
+        for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
-
             if (b.getHeight() < computeheight(b.getValue())) {
                 int temp = computeheight(b.getValue() / 10);
 
