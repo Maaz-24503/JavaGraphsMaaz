@@ -162,7 +162,14 @@ public class HorizontalBarGraph extends Graph {
                 g.drawString(b.getLabel(), b.getX() + b.getWidth() + 5, b.getY() - (b.getHeight() / 2) + b.getHeight());
             }
             //drawing axis labels
-
+            for (int i = 1; i <= 10; i++) {
+                //10 to make 10 divisions
+                g.setColor(Color.BLACK);
+                HorizontalBarGraph temp2 = (HorizontalBarGraph) this;
+                float temp = (float) ((temp2.getMaxValue() / 10.0) * i);
+                String print = temp + "";
+                g.drawString(print, this.graphArea.getX() + ((this.graphArea.getWidth() - 50) / 10) * i, this.graphArea.getY());
+            }
         }
     }
 

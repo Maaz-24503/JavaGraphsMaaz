@@ -4,7 +4,6 @@ import Factory.AbstractFactory;
 import Factory.FactoryCreator;
 import Graph.Graph;
 import Graph.GraphArea;
-import Graph.HorizontalBarGraph;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +17,10 @@ import java.util.Scanner;
 
 public class JavaGraphs extends JFrame implements ActionListener {
 
-    private static int width = 1000;
-    private static int height = 700;
+    private static int width = 800;
+    private static int height = 600;
     private Timer timer;
-    private int delay = 8;
+    private int delay = 30;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
     private AbstractFactory abf;
@@ -40,14 +39,10 @@ public class JavaGraphs extends JFrame implements ActionListener {
             isPressed = true;
         });
         button.setBounds(width - 160, height - 70, 100, 20);
-        JPanel panel = new JPanel();
-        //panel.setBackground(Color.orange);
-        // panel.setBounds(0,0,width,height);
 
 
         setLayout(null);
-        // panel.add(button);
-        // getContentPane().setBackground(Color.WHITE);
+
         getContentPane().add(button);
         setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,37 +111,13 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
 
         if (isPressed) {
-            // g2d.clearRect(0,0,width,height);
             g.setColor(Color.WHITE);
             g2d.fillRect(0, 0, width, height);
             isPressed = false;
 
         }
-        if (printOnce == false) {
-            for (int i = 1; i <= 10; i++) {
-                //10 to make 10 divisions
-                if (barGraph.isVertical()) {
-//                    VerticalBarGraph temp2 =(VerticalBarGraph) barGraph;
-//                    float temp = (float)((temp2.getMaxValue()/10.0) * i);
-//                    String print = temp +"";
-//                    g.drawString(print, (area.getX()), area.getY() + area.getHeight() - ((area.getHeight()-50)/10)*i);
-                    //printOnce = true;
-                } else {
-                    g.setColor(Color.BLACK);
-                    HorizontalBarGraph temp2 = (HorizontalBarGraph) barGraph;
-                    float temp = (float) ((temp2.getMaxValue() / 10.0) * i);
-                    String print = temp + "";
-                    g.drawString(print, area.getX() + ((area.getWidth() - 50) / 10) * i, area.getY());
-                    // printOnce = true;
-                }
-            }
-        }
-
-
-        //System.out.println("draw");
-        //****************************
-
     }
+
 
     @Override
     public void paint(Graphics g) {
@@ -169,13 +140,14 @@ public class JavaGraphs extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         barGraph.setValue();
+
         //check if the button is pressed
+
         if (isPressed == true) {
             abf = factoryCreator.createFactory(3);
 
             if (barGraph.isVertical()) {
 
-                System.out.println("Maaz");
 
                 barGraph = abf.getGraph(1);
                 barGraph.setGraphArea(area);
@@ -186,7 +158,6 @@ public class JavaGraphs extends JFrame implements ActionListener {
                 printOnce = false;
             } else {
 
-                System.out.println("Bilal");
 
                 barGraph = abf.getGraph(0);
                 barGraph.setGraphArea(area);
