@@ -5,12 +5,4 @@ Helicopter 6500
 car 20000
 maaz 32981
 bilal 98213
-blahblah 79813
-car 5000
-truck 9000
-bike 4500
-Helicopter 6500
-car 20000
-maaz 32981
-bilal 98213
-blahblah 79813
+blahblah 79813.5

@@ -1,19 +1,24 @@
 package Factory;
 
-import Graph.*;
+import Graph.Bar;
+import Graph.Graph;
 
 import java.awt.*;
 
-public class FontFactory extends AbstractFactory{
-	/**
-	 * this constructor creates a FontFactory
-	 */
-    public FontFactory(){
+public class FontFactory extends AbstractFactory {
+
+    // We have not used this class since the fonts ended up glitching on windows and only worked on linux
+    // So we simply used the drawString function
+
+    /**
+     * this constructor creates a FontFactory
+     */
+    public FontFactory() {
 
     }
+
     /**
-     *
-     * @return  returns a randomly generated color
+     * @return returns a randomly generated color
      */
     @Override
     public Color getRandomColor() {
@@ -21,7 +26,6 @@ public class FontFactory extends AbstractFactory{
     }
 
     /**
-     *
      * @param value Numerical value of bar
      * @param label Qualitative name
      * @return A bar with the provided numerical value and label
@@ -32,7 +36,6 @@ public class FontFactory extends AbstractFactory{
     }
 
     /**
-     *
      * @param i 1-Vertical Bar Graph, 2- Horizontal Bar Graph
      * @return Either a Horizontal or a Vertical Graph
      */
@@ -40,13 +43,13 @@ public class FontFactory extends AbstractFactory{
     public Graph getGraph(int i) {
         return null;
     }
+
     /**
-     *
      * @param fontSize - The font size of the text
-     * @param choice  1-Bold, 2-Italics,3-Plain
+     * @param choice   1-Bold, 2-Italics,3-Plain
      * @return returns font of the prefered size and description
      */
-    public Font getFont(int fontSize,int choice){
+    public Font getFont(int fontSize, int choice) {
         return switch (choice) {
             case (0) -> new Font(Font.SANS_SERIF, Font.BOLD, fontSize);
             case (1) -> new Font(Font.SANS_SERIF, Font.PLAIN, fontSize);

@@ -14,7 +14,6 @@ public class Bar {
     private String label;
     private double value;
     private int fontSize;
-    private boolean isHorizontal;
 
     /**
      * This constructs a Bar with specified label, value and color
@@ -27,7 +26,6 @@ public class Bar {
         this.color = color;
         this.label = label;
         this.value = value;
-        //this.isHorizontal;
     }
 
     /**
@@ -93,13 +91,6 @@ public class Bar {
         return label;
     }
 
-    /**
-     * @return returns the boolean value of isHorizontal
-     */
-
-    public boolean isHorizontal() {
-        return isHorizontal;
-    }
 
     /**
      * @param color sets the color of the bar
@@ -165,13 +156,6 @@ public class Bar {
         this.y = y;
     }
 
-    /**
-     * @param horizontal sets the boolean value for Horizontal
-     */
-
-    public void setHorizontal(boolean horizontal) {
-        isHorizontal = horizontal;
-    }
 
     /**
      * This method draws the Bar
@@ -194,12 +178,7 @@ public class Bar {
      */
 
     private int computeFontSize() {
-        if (isHorizontal) {
-            fontSize = (int) (width * 10);
-            return fontSize;
-        } else {
-            fontSize = (int) (width * 10);
-            return fontSize;
-        }
+        fontSize = (int) (width * 10);
+        return fontSize;
     }
 }

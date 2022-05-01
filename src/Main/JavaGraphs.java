@@ -17,8 +17,8 @@ import java.util.Scanner;
 
 public class JavaGraphs extends JFrame implements ActionListener {
 
-    private static int width = 800;
-    private static int height = 600;
+    private static int width = 1500;
+    private static int height = 1000;
     private Timer timer;
     private int delay = 30;
     private GraphArea area;
@@ -31,7 +31,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
     private boolean printOnce = false;
 
-    // private
+    
     public JavaGraphs() {
         super("Graphs Program");
         setLayout(null);
