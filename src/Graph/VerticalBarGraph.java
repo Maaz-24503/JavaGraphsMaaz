@@ -136,7 +136,7 @@ public class VerticalBarGraph extends Graph {
                 int temp = computeheight(b.getValue() / 10);
                 b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
                 b.setY(b.getY() - temp);
-                if(Math.abs(b.getHeight()- computeheight(b.getValue())) <= temp ){
+                if (Math.abs(b.getHeight() - computeheight(b.getValue())) <= temp) {
                     b.setValue(computeheight(b.getValue()));
                 }
             }
@@ -163,12 +163,13 @@ public class VerticalBarGraph extends Graph {
                 g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontsize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
             }
         }
+        // drawing axis labels
         g.setColor(Color.BLACK);
         for (int i = 1; i <= 10; i++) {
 
             float temp = (float) ((this.getMaxValue() / 10.0) * i);
             String print = temp + "";
-            g.drawString(print, (graphArea.getX()), graphArea.getY() + graphArea.getHeight() - ((graphArea.getHeight() - 50) / 10) * i);
+            g.drawString(print, (graphArea.getX()) + 2, graphArea.getY() + graphArea.getHeight() - ((graphArea.getHeight() - 50) / 10) * i);
         }
     }
 

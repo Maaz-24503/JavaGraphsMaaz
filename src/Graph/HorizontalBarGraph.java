@@ -166,7 +166,7 @@ public class HorizontalBarGraph extends Graph {
                 g.setColor(Color.BLACK);
                 float temp = (float) ((getMaxValue() / 10.0) * i);
                 String print = temp + "";
-                g.drawString(print, this.graphArea.getX() + ((this.graphArea.getWidth() - 50) / 10) * i, this.graphArea.getY());
+                g.drawString(print, this.graphArea.getX() + ((this.graphArea.getWidth() - 50) / 10) * i, this.graphArea.getY() - 2);
             }
         }
     }
