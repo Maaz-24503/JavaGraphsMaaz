@@ -164,14 +164,14 @@ public class VerticalBarGraph extends Graph {
      */
     public void drawGraph(Graphics g) {
 
-        FontMetrics fontsize = g.getFontMetrics();//Font metrics allows us to check how many pixels a string is taking
+        FontMetrics fontSize = g.getFontMetrics();//Font metrics allows us to check how many pixels a string is taking
         //this will help us in centering the font
         for (Bar b : listOfBar) {
             b.drawBar(g);
             b.drawBar(g);
             if (b.getHeight() >= computeHeight(b.getValue())) {
                 g.setColor(Color.BLACK);
-                g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontsize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
+                g.drawString(b.getLabel(), b.getX() + (b.getWidth() / 2) - (fontSize.stringWidth(b.getLabel()) / 2), b.getY() - 5);
             }
         }
         // drawing axis labels
@@ -186,7 +186,7 @@ public class VerticalBarGraph extends Graph {
 
     /**
      *
-     * @return true it it's a vertical bar graph and false if it's a HorizontalBarGraph
+     * @return true if it's a vertical bar graph and false if it's a HorizontalBarGraph
      */
     @Override
     public boolean isVertical() {

@@ -135,7 +135,7 @@ public class HorizontalBarGraph extends Graph {
             int computedWidth = computeWidth(b.getValue());
 
             if (b.getWidth() < computedWidth) {
-                //we check if its less than 10
+                //we check if it's less than 10
                 if (computeWidth(b.getValue()) < 10) {
                     //if it is less than 10 then we increase it by the computed Width
                     //otherwise it will be 0
