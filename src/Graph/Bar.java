@@ -181,11 +181,10 @@ public class Bar {
 
     public void drawBar(Graphics g) {
         g.setColor(Color.BLACK);
+        //-1 and +1 so that it does not the overlap with the axis
         g.drawRect(x - 1, y - 1, width + 1, height + 1);
         g.setColor(color);
         g.fillRect(x, y, width, height);
-
-        //g.drawString(this.label, x +width+5, y+ height/2);
     }
 
     /**

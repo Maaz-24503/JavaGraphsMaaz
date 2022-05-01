@@ -12,14 +12,12 @@ public class VerticalBarGraph extends Graph {
     private double maxValue;
     private int Spacing = 20;
 
-    private boolean isVertical;
 
     /**
      * this constructs a HorizontalBarGraph object
      */
 
     public VerticalBarGraph() {
-        isVertical = true;
     }
 
     /**
@@ -176,7 +174,7 @@ public class VerticalBarGraph extends Graph {
 
     @Override
     public boolean isVertical() {
-        return isVertical;
+        return true;
     }
 }
 

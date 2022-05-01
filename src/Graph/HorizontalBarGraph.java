@@ -95,7 +95,6 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public int computeWidth(double Value) {
-        //System.out.println(((Value * (graphArea.getWidth() / this.maxValue)) - 50));
         return (int) Math.ceil(((Value * ((graphArea.getWidth() - 50) / this.maxValue))));
     }
 
@@ -105,7 +104,7 @@ public class HorizontalBarGraph extends Graph {
      */
 
     public int computeHeight(int Spacing) {
-        return graphArea.getHeight() / (listOfBar.size()) - Spacing - (int) Math.ceil(10.0 / listOfBar.size());
+        return graphArea.getHeight() / (count) - Spacing - (int) Math.ceil(10.0 / count);
     }
 
     /**
@@ -131,13 +130,13 @@ public class HorizontalBarGraph extends Graph {
 
     public void setValue() {
         //animation code
-        for (int i = 0; i < listOfBar.size(); i++) {
+        for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
 
             if (b.getWidth() < computeWidth(b.getValue())) {
 
                 if (computeWidth(b.getValue()) < 10) {
-                    b.setWidth((int) (b.getWidth() + computeWidth(b.getValue())));
+                    b.setWidth((b.getWidth() + computeWidth(b.getValue())));
                 } else {
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }
@@ -165,8 +164,7 @@ public class HorizontalBarGraph extends Graph {
             for (int i = 1; i <= 10; i++) {
                 //10 to make 10 divisions
                 g.setColor(Color.BLACK);
-                HorizontalBarGraph temp2 = (HorizontalBarGraph) this;
-                float temp = (float) ((temp2.getMaxValue() / 10.0) * i);
+                float temp = (float) ((getMaxValue() / 10.0) * i);
                 String print = temp + "";
                 g.drawString(print, this.graphArea.getX() + ((this.graphArea.getWidth() - 50) / 10) * i, this.graphArea.getY());
             }
@@ -175,7 +173,7 @@ public class HorizontalBarGraph extends Graph {
 
     @Override
     public boolean isVertical() {
-        return isVertical;
+        return false;
     }
 }
 

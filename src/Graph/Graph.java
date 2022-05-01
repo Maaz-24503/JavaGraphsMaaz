@@ -33,5 +33,9 @@ public abstract class Graph {
 
     public abstract void drawGraph(Graphics g);
 
+    /**
+     *
+     * @return true if its vertical and false  if its horizontal
+     */
     public abstract boolean isVertical();
 }
