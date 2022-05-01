@@ -20,7 +20,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
     private static int width = 800;
     private static int height = 600;
     private Timer timer;
-    private int delay = 30;
+    private int delay = 8;
     private GraphArea area;
     private FactoryCreator factoryCreator = new FactoryCreator();
     private AbstractFactory abf;
@@ -110,13 +110,9 @@ public class JavaGraphs extends JFrame implements ActionListener {
         area.printGraphArea(g2d);
         button.repaint();
         barGraph.drawGraph(g2d);
+        resetScreen(g2d);
 
-        //clearing the screen by setting it to the background color
-        if (isPressed) {
-            g.setColor(Color.WHITE);
-            g2d.fillRect(0, 0, width, height);
-            isPressed = false;
-        }
+        //****************************
     }
 
 
@@ -148,6 +144,9 @@ public class JavaGraphs extends JFrame implements ActionListener {
         repaint();
     }
 
+    /**
+     * check if the button is pressed, if it is then it swithes the graph from vertical to horizontal or vice versa
+     */
     public void ifButtonPressed(){
         if (isPressed) {
             abf = factoryCreator.createFactory(3);
@@ -172,6 +171,16 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
 
         }
+    }
+
+    public void resetScreen(Graphics g){
+        //clearing the screen by setting it to the background color
+        if (isPressed) {
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, width, height);
+            isPressed = false;
+        }
+
     }
 
 }
