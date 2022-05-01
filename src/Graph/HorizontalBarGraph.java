@@ -145,8 +145,10 @@ public class HorizontalBarGraph extends Graph {
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }
             }
+            //+10 so that it doesn't touch axis
             int yCoordinate = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() + 10;
-            b.setX(graphArea.getX());
+            //+1 so that it doesn't overlap with the axis
+            b.setX(graphArea.getX()+1);
             b.setY(yCoordinate);
             b.setHeight(computeHeight(Spacing));
         }

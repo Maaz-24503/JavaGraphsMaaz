@@ -119,6 +119,8 @@ public class VerticalBarGraph extends Graph {
         listOfBar.add(b);
         count++;
         if (b.getValue() > maxValue) maxValue = b.getValue();
+        //starting for the bars
+        //which is the bottom axis
         b.setX(graphArea.getX());
         b.setY(graphArea.getHeight() + graphArea.getY());
     }
@@ -146,7 +148,7 @@ public class VerticalBarGraph extends Graph {
                     //we subtract the y coordinate as it increase as we go down
                     b.setY(b.getY()-increment);
                 }
-
+                //+40 so that there is room for the label
                 int xCoordinate = i * computeWidth(getSpacing()) + (i) * getSpacing() + graphArea.getX() + 40;
                 //the width of the bar
                 b.setWidth(computeWidth(Spacing));
