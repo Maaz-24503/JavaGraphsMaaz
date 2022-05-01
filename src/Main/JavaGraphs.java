@@ -17,8 +17,8 @@ import java.util.Scanner;
 
 public class JavaGraphs extends JFrame implements ActionListener {
 
-    private static int width = 1500;
-    private static int height = 1000;
+    private static int width = 800;
+    private static int height = 600;
     private Timer timer;
     private int delay = 30;
     private GraphArea area;
@@ -31,11 +31,11 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
     private boolean printOnce = false;
 
-    
+    // private
     public JavaGraphs() {
         super("Graphs Program");
         setLayout(null);
-        getContentPane().add(button);
+
         setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -44,19 +44,19 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         //adding button
         button = new JButton("Change");
+        getContentPane().add(button); 
         //function for button
         button.addActionListener(e -> {
             isPressed = true;
         });
         button.setBounds(width - 160, height - 70, 100, 20);
-        //setting graph area
         area = new GraphArea(width, height);
         abf = factoryCreator.createFactory(3);
         //select type of graph
         barGraph = abf.getGraph(0);
         barGraph.setGraphArea(area);
 
-        //taking data from file
+
         Path path = Paths.get("src/Main/data.txt");
         long lines = 0;
         try {
@@ -87,7 +87,6 @@ public class JavaGraphs extends JFrame implements ActionListener {
             count1++;
 
         }
-        //setting the graph area
         barGraph.setGraphArea(area);
         //converting into bars
         abf = factoryCreator.createFactory(0);
@@ -95,6 +94,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
         for (int i = 0; i < store.length; i++) {
             barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
         }
+
 
         //****************************
         timer = new Timer(delay, this);

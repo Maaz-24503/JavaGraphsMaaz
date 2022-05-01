@@ -7,7 +7,6 @@ import java.awt.*;
 
 public abstract class AbstractFactory {
 
-
     /**
      * @return returns a randomly generated color
      */
