@@ -101,7 +101,7 @@ public class Bar {
     }
 
     /**
-     * @param fontSize sets the fontsize of the label
+     * @param fontSize sets the font size of the label
      */
 
     public void setFontSize(int fontSize) {
@@ -174,10 +174,12 @@ public class Bar {
     /**
      * Private function that computes the Font size
      *
-     * @return returns the fontsize
+     * @return returns the font size
      */
-
     private int computeFontSize() {
+        
+        // this function was not used because font factory was glitching on windows
+
         fontSize = (int) (width * 10);
         return fontSize;
     }
