@@ -27,11 +27,12 @@ public class GraphArea {
     /**
      * This method draws the GraphArea of specified width and heigth
      * and the center (x,y) coordinates
-     * @param G takes in Graphics as a parameter
+     * @param g takes in Graphics as a parameter
      */
 
-    public void printGraphArea(Graphics G) {
-        G.drawRect(x, y, width, height);
+    public void printGraphArea(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.drawRect(x, y, width, height);
     }
     /**
      * 

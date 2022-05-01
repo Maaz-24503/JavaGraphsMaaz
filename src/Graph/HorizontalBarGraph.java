@@ -141,9 +141,9 @@ public class HorizontalBarGraph extends Graph {
                     b.setWidth((int) (b.getWidth() + Math.ceil(computeWidth(b.getValue()) / 10.0)));
                 }
             }
-            int y1 = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() + 10;
+            int yCoordinate = i * computeHeight(getSpacing()) + (i) * getSpacing() + graphArea.getY() + 10;
             b.setX(graphArea.getX());
-            b.setY(y1);
+            b.setY(yCoordinate);
             b.setHeight(computeHeight(Spacing));
         }
     }

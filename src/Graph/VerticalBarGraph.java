@@ -129,15 +129,17 @@ public class VerticalBarGraph extends Graph {
      */
     public void setValue() {
         //animation code
-        for (int i = 0; i < listOfBar.size(); i++) {
+        for (int i = 0; i < count; i++) {
             Bar b = listOfBar.get(i);
-
-            if (b.getHeight() < computeheight(b.getValue())) {
-                int temp = computeheight(b.getValue() / 10);
-                b.setHeight(b.getHeight() + computeheight(b.getValue() / 10));
-                b.setY(b.getY() - temp);
-                if(Math.abs(b.getHeight()- computeheight(b.getValue())) <= temp ){
+            int computedHeight = computeheight(b.getValue());
+            if (b.getHeight() < computedHeight) {
+                int temp = computedHeight/10;
+                if(Math.abs(b.getHeight()- computedHeight) <= temp ){
                     b.setValue(computeheight(b.getValue()));
+                    //b.setHeight(b.getY());
+                }else{
+                    b.setHeight(b.getHeight() + computeheight(b.getValue())/10);
+                    b.setY(b.getY() - temp);
                 }
             }
             //int x1 = (int) ((listOfBar.get(i).getValue() / 2) + graphArea.getX());

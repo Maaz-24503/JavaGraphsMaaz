@@ -29,7 +29,6 @@ public class JavaGraphs extends JFrame implements ActionListener {
     private JButton button;
     private boolean isPressed;
 
-    private boolean printOnce = false;
 
     // private
     public JavaGraphs() {
@@ -49,11 +48,13 @@ public class JavaGraphs extends JFrame implements ActionListener {
         button.addActionListener(e -> {
             isPressed = true;
         });
-        button.setBounds(width - 160, height - 70, 100, 20);
+
         area = new GraphArea(width, height);
+        button.setBounds(area.getWidth(),area.getHeight() + 20, 100, 20);
         abf = factoryCreator.createFactory(3);
         //select type of graph
         barGraph = abf.getGraph(0);
+        //setting the graph area
         barGraph.setGraphArea(area);
 
 
@@ -87,7 +88,7 @@ public class JavaGraphs extends JFrame implements ActionListener {
             count1++;
 
         }
-        barGraph.setGraphArea(area);
+
         //converting into bars
         abf = factoryCreator.createFactory(0);
 
@@ -105,17 +106,16 @@ public class JavaGraphs extends JFrame implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
         //*****Add your code here*****
-        g.setColor(Color.BLACK);
+        
         area.printGraphArea(g2d);
         button.repaint();
         barGraph.drawGraph(g2d);
 
-
+        //clearing the screen by setting it to the background color
         if (isPressed) {
             g.setColor(Color.WHITE);
             g2d.fillRect(0, 0, width, height);
             isPressed = false;
-
         }
     }
 
@@ -143,22 +143,23 @@ public class JavaGraphs extends JFrame implements ActionListener {
         barGraph.setValue();
 
         //check if the button is pressed
+        ifButtonPressed();
 
-        if (isPressed == true) {
+        repaint();
+    }
+
+    public void ifButtonPressed(){
+        if (isPressed) {
             abf = factoryCreator.createFactory(3);
-
             if (barGraph.isVertical()) {
-
-
                 barGraph = abf.getGraph(1);
                 barGraph.setGraphArea(area);
                 abf = factoryCreator.createFactory(0);
                 for (int i = 0; i < store.length; i++) {
                     barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
-                printOnce = false;
-            } else {
 
+            } else {
 
                 barGraph = abf.getGraph(0);
                 barGraph.setGraphArea(area);
@@ -166,12 +167,11 @@ public class JavaGraphs extends JFrame implements ActionListener {
                 for (int i = 0; i < store.length; i++) {
                     barGraph.addBar(abf.getBar(Double.parseDouble(store[i][1]), store[i][0]));
                 }
-                printOnce = false;
+
             }
 
 
         }
-        repaint();
     }
 
 }
