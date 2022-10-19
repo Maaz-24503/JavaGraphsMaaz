@@ -1,10 +1,8 @@
-# Group 3 Project
-## Object-Oriented Programming Project
+## Graph drawing code
 
 ### Group Members
+Maaz Karim 24503 
 Muhammad Bilal 24443  
-Maaz Karim 24503  
-Muhammad Bilal Taha 25132
 
 ### Changes from the UML  
 ##### Bar.java  
